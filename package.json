@@ -1,0 +1,36 @@
+{
+  "name": "talent-ui",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "dev:server": "node --env-file-if-exists=.env --watch server/index.mjs",
+    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "db:migrate": "node --env-file-if-exists=.env server/migrate.mjs",
+    "user:create": "node --env-file-if-exists=.env server/create-user.mjs",
+    "test": "node --test --test-concurrency=1 server/test/*.test.mjs",
+    "test:sql": "node --env-file-if-exists=.env server/test/sql.integration.mjs",
+    "build": "tsc -b && vite build",
+    "build:preview": "tsc -b && vite build --mode preview --outDir dist-preview && node scripts/package-preview.mjs",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mssql": "^12.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.468.0",
+    "read-excel-file": "^6.0.0",
+    "papaparse": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/papaparse": "^5.3.16",
+    "typescript": "~5.9.3",
+    "vite": "^7.0.0",
+    "@vitejs/plugin-react": "^4.3.4"
+  }
+}
